@@ -25,3 +25,44 @@ sencha generate controller MyController
 
 sencha app upgrade [ path-to-new-framework ]Sencha Cmd 升级 SDK 的版本是很容易的。使用这个升级命令将你的程序升级到新框架
 
+
+
+
+
+
+核心概念：
+   Ext.application 方法初始化的。这个方法的参数是一个 Ext.app.Application 对象，这个方法会加载 Ext.app.Application 类，并在页面加载完成后开始应用给定的配置 Ext.app.Application 这个类代表我们的整个应用
+   
+   Ext.define(name,data, callback) 你可以用这个方法定义或者重写一个类。 这个方法有三个参数，如以下代码所示。 在这里 name 参数是你要定义的类名，data 参数是应用于这个类的属性，callback 是可选参数，这个函数将会在这个类被创建后调用
+   
+   创建一个名为 Car 的类
+   Ext.define('Car', {     
+    name: null,  
+    constructor: function(name) {       
+        if (name) {         
+            this.name = name;       
+        }  
+    },  
+    start: function() {       
+        alert('Car started');  
+    }  
+}) ;
+
+使用 define 继承扩展一个类
+xt.define('ElectricCar', {     
+    extend: 'Car',     
+    start: function() {  
+        alert("Electric car started");  
+    }  
+}) ; 
+
+想替换一个父类方法的实现，你可以使用 Ext.define 来重写这个方法
+Ext.define('My.ux.field.Text', { 
+     //继承我们使用 extend 而重写使用 override
+    override: 'Ext.form.field.Text',     
+    setValue: function(val) {       
+        this.callParent(['In override']);       
+        return this;  
+    }  
+}); 
+
