@@ -66,3 +66,72 @@ Ext.define('My.ux.field.Text', {
     }  
 }); 
 
+
+
+
+下列代码来创建一个类的实例
+Ext.create(Class,Options); 
+
+这个函数在页面加载完成后调用：
+Ext.onReady(function(){     
+    new Ext.Component({       
+        renderTo: document.body,       
+        html: 'DOM ready!'  
+    });  
+}) ; 
+
+Ext.define('Ext.panel.Panel', {  
+    extend: 'Ext.container.Container',  
+    alias: 'widget.panel'//这里是定义的别名，  
+});  
+
+Ext.Base
+这是所有 Ext 类的基础。所有的 Ext 类都继承自 Ext.Base。该类所有的原型和静态成员都会传递给继承它的类
+
+如果你需要引入一个指定命名空间下所有的 组件/类 时，使用通配符，如以下代码所示
+Ext.require(['widget.*', 'layout.*', 'Ext.data.*')
+
+用以下语法排除掉不需要的类
+Ext.exclude('Ext.data.*').require('*');
+
+requires 属性加载需要的类时，当前类初始化之前被加载。
+uses 属性加载需要的类时，当前类初始化之后被加载。
+singleton:true 属性当前类初始化时,该实例是一个单例对象。
+
+
+Adding listeners(添加事件监听)
+
+当你创建对象或者创建以后都可以为这个对象添加监听器。下列示例代码为这个对象添加了一个 单击事件 的监听
+
+Ext.create('Ext.Button', {     
+    renderTo: Ext.getBody(),     
+    listeners: {       
+        click: function() {  
+            Ext.Msg.alert('Button clicked!');  
+        }  
+    }  
+}) ;  
+
+你也可以在对象创建之后，使用 on 方法为对象添加事件监听
+var button = Ext.create('Ext.Button');  
+button.on('click', function() {  
+   //Do something  
+}) ; 
+
+Removing listeners (删除事件监听)
+button.un('click', HandleClick);  
+
+访问 DOM
+
+Ext.get   ------get 方法是根据这个 DOM 元素的 ID 检索获取并封装为 Ext.dom.Element 对象
+Ext.query ------种方式基于传入的 CSS 选择器 从给定的根节点开始查找。它返回一个匹配选择器的元素(HTMLElement[]/Ext.dom.Element[])数组。如果没有匹配的，返回一个空值的数组对象
+Ext.select -----Ext.select 方法返回一个 CompositeElement 类型的对象，代表一个元素的集合。这个 CompositeElement 对象可以进行过滤，迭代，和对整个集合执行整体操作等
+
+Ext.select('div.row, span.title'); //匹配所有的 class 用 .row 的 div 元素，和匹配所有 class 用 .title 的
+
+链式选择器下列的查询方式会匹配 class 为 row 并且 title 属性值为 bar 的 div ，这个 div 属于其父元素的首个子元素
+Ext.select('div.row[title=bar]:first'
+
+Ext.ComponentQuery
+Ext.ComponentQuery.query('button');  将返回所有的 xtype 为 button 的组件
+
