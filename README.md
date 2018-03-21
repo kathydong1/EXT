@@ -31,7 +31,7 @@ sencha app upgrade [ path-to-new-framework ]Sencha Cmd 升级 SDK 的版本是�
 
 
 核心概念：
-   Ext.application 方法初始化的。这个方法的参数是一个 Ext.app.Application 对象，这个方法会加载 Ext.app.Application 类，并在页面加载完成后开始应用给定的配置 Ext.app.Application 这个类代表我们的整个应用
+   Ext.application，接受一个参数 方法初始化的。这个方法的参数是一个 Ext.app.Application 对象，这个方法会加载 Ext.app.Application 类，并在页面加载完成后开始应用给定的配置 Ext.app.Application 这个类代表我们的整个应用
    
    Ext.define(name,data, callback) 你可以用这个方法定义或者重写一个类。 这个方法有三个参数，如以下代码所示。 在这里 name 参数是你要定义的类名，data 参数是应用于这个类的属性，callback 是可选参数，这个函数将会在这个类被创建后调用
    
@@ -134,4 +134,10 @@ Ext.select('div.row[title=bar]:first'
 
 Ext.ComponentQuery
 Ext.ComponentQuery.query('button');  将返回所有的 xtype 为 button 的组件
+
+
+
+
+
+
 
