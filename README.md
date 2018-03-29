@@ -137,7 +137,20 @@ Ext.ComponentQuery.query('button');  将返回所有的 xtype 为 button 的组�
 
 
 
+1新建文件夹
+打开cmd
+运行sencha -sdk   ext目录  generate app --classic Sgai 项目得目录
 
+打开app删除文件夹
+copy原来为牛按得webapp文件下得除了aplication.js
+
+
+打开app.js   配置mainView出口文件
+    app.json   配置requires引入“ext-ux”"charts"和js文件配置需要引入得框架
+    
+    
+    打开classic下得src得classic得src替换文件
+      
 
 
 
